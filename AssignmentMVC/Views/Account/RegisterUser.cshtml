@@ -1,0 +1,127 @@
+﻿
+
+
+
+
+
+@Html.Partial("_Header")
+
+<section class="contact-form">
+    <div class="container">
+        <div class="title">Register new account</div>
+
+        <form method="post" novalidate asp-controller="Account" asp-action="RegisterUser">
+            <table>
+                <tr>
+                    <tr><td><label for="firstname">First Name*</label></td></tr>
+                    <td><input name="FirstName" id="firstname" type="text" class="invalid"></td>
+                    <td style="color:red;"><span id="FirstNameError"></span></td>
+                </tr>
+                <tr>
+                    <tr><td><label for="lastname">Last Name*</label></td></tr>
+                    <td><input name="LastName" id="lastname" type="text" class="invalid"></td>
+                    <td style="color:red;"><span id="LastNameError"></span></td>
+                </tr>
+                <tr>
+                    <tr><td><label for="email">Email*</label></td></tr>
+                    <td><input name="Email" id="email" type="text" class="invalid"></td>
+                    <td style="color:red;"><span id="EmailError"></span></td>
+                </tr>
+                <tr> 
+                    <tr><td><label for="password">Password*</label></td></tr>
+                    <td><input name="Password" id="password1" type="text" class="invalid"></td>
+                    <td style="color:red;"><span id="PasswordError1"></span></td>
+                </tr>
+                <tr>
+                    <tr><td><label for="password">Repeat password*</label></td></tr>
+                    <td><input name="Password" id="password2" type="text" class="invalid"></td>
+                    <td style="color:red;"><span id="PasswordError2"></span></td>
+                </tr>
+                <tr>      
+                    <tr><td><label for="streetname">Street Name</label></td></tr>
+                    <td><input name="StreetName" id="streetname" type="text" class="invalid"></td>
+                    <td><span class="error"></span></td>
+                </tr>
+                <tr>
+                    <tr><td><label for="postalcode">Postal Code</label></td></tr>
+                    <td><input name="PostalCode" id="postalcode" type="text" class="invalid"></td>
+                    <td><span class="error"></span></td>
+                </tr>
+                <tr>     
+                    <tr><td><label for="city">City</label></td></tr>
+                    <td><input name="City" id="city" type="text" class="invalid"></td>
+                    <td><span class="error"></span></td>
+                </tr>
+            </table>
+
+            <button class="btn-theme" onclick="return Validation()">Register</button>
+        </form>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    
+    function Validation()
+    {
+        txtFirstName = document.getElementById("firstname").value
+        txtLastName = document.getElementById("lastname").value
+        txtEmail = document.getElementById("email").value
+        txtPassword1 = document.getElementById("password1").value
+        txtPassword2 = document.getElementById("password2").value
+        if (txtFirstName == "")
+        {
+            document.getElementById("FirstNameError").innerHTML = " required field";
+        }
+        else
+        {
+            document.getElementById("FirstNameError").innerHTML = "";
+        }
+        if (txtLastName == "")
+        {
+            document.getElementById("LastNameError").innerHTML = " required field";
+        }
+        else
+        {
+            document.getElementById("LastNameError").innerHTML = "";
+        }
+        if (txtEmail == "") 
+        {
+            document.getElementById("EmailError").innerHTML = " required field";
+        }
+        else 
+        {
+            document.getElementById("EmailError").innerHTML = "";
+        }
+        if (txtPassword1 == "")
+        {
+            document.getElementById("PasswordError1").innerHTML = " required field";
+        }
+        else if (txtPassword1 != txtPassword2) 
+        {
+            document.getElementById("PasswordError1").innerHTML = " passwords not matching";
+        }
+        else
+        {
+            document.getElementById("PasswordError1").innerHTML = "";
+        }
+        if (txtPassword2 == "") 
+        {
+            document.getElementById("PasswordError2").innerHTML = " required field";
+        }
+        else if (txtPassword1 != txtPassword2)
+        {
+            document.getElementById("PasswordError2").innerHTML = " passwords not matching";
+        }
+        else 
+        {
+            document.getElementById("PasswordError2").innerHTML = "";
+        }
+        if (txtFirstName == "" || txtLastName == "" || txtEmail == "" || txtPassword1 == "" || txtPassword2 == "")
+        {
+            return false;
+        }
+        return true;
+    }
+
+</script>

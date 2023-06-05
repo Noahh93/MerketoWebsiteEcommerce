@@ -1,0 +1,31 @@
+﻿@using System.Security.Claims
+
+<header>
+    <div class="container">
+        <div class="logo"><img src="images/logo.svg" alt="">bmerketo</div>
+        <nav id="menu" class="menu-links">
+            @*<a class="link" href="Home/Index">HOME</a>*@
+            <a class="link" href="@Url.Action("Index", "Home")">Home</a>
+            <a class="link" href="@Url.Action("Index", "Product")">Products</a>
+            <a class="link" href="@Url.Action("DisplayUsers", "Admin")">Users</a>
+        </nav>
+        <nav class="menu-icons">
+            <a class="link" href="#"><i class="fa-regular fa-search"></i></a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="link" href="@Url.Action("Logout", "Account")">Logout</a>
+            }
+            else
+            {
+                <a class="link" href="@Url.Action("Login", "Account")">Login</a>
+            }
+    
+            <a class="link" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+        </nav>
+        <div class="toggle">
+            <button class="btn-toggle btn-outline-white" data-option="toggle" data-target="#menu">
+                <i id="icon" class="fa-regular fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>

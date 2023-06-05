@@ -1,0 +1,26 @@
+﻿@Html.Partial("_Header");
+
+<section class="contact-form">
+    <div class="container">
+        <div class="title">Create Category</div>
+
+        <form method="post" asp-controller="Category" asp-action="SaveCategory">
+            <table>
+                <tr>
+                    <tr><td><label for="name">Name</label></td></tr>
+                    <td><input name="Name" type="text" id="name" class="invalid"></td>
+                    <td style="color:red" id="errorName"></td>
+                </tr>
+                <tr>
+                    <tr><td><label for="description">Description</label></td></tr>
+                    <td><input name="Description" id="description" type="text" class="invalid"></td>
+                    <td style="color:red" id="errorDescription"></td>
+                </tr>
+            </table>
+            <button class="btn-theme" onclick="return Validation();">Save</button>
+        </form>
+        <div style="color:red;">@ViewBag.CategoryNameExist</div>
+    </div>
+</section>
+
+@Html.Partial("_Footer");

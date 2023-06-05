@@ -1,0 +1,41 @@
+﻿@model AssignmentMVC.Models.Product
+
+@Html.Partial("_HeaderAdmin");
+
+
+
+<table style="color:black; margin-left:200px; margin-top:50px; margin-bottom:500px;">
+    <h1 style="font-size:50px;">Product Page</h1>
+    <tr>
+        <td style="font-weight:bold; font-size:14px;">ID:</td>
+        <td>@Model.Id</td>
+    </tr>
+    <tr>
+        <td style ="font-weight:bold; font-size:14px;">Price: </td>
+        <td>@Model.Price</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold; font-size:14px;">Description: </td>
+        <td>@Model.Description</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold; font-size:14px;">Section: </td>
+        <td>@Model.Category.Name</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold; font-size:14px;">Category: </td>
+        <td>@Model.ProductCategory.Name</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold; font-size:14px;">Image: </td>
+        <td><img style="width:50%; height:50%;" src="/uploads/@Model.ImagePath" /></td>
+    </tr>
+</table>
+@*<div style="font-weight:bold; font-size:14px;">Product ID: @Model.Id</div>
+<div style="font-weight:bold; font-size:14px;">Product Name: @Model.Name</div>
+<div>Product Price: @Model.Price</div>
+<div>Product Description: @Model.Description</div>
+<div>Product Section: @Model.Category.Name</div>
+<div>Product Category: @Model.ProductCategory.Name</div>
+<div class="collection-grid">Image: <img style="width:50%; height:50%;" src="/uploads/@Model.ImagePath" /></div>*@
+

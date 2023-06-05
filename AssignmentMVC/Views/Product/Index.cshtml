@@ -1,0 +1,141 @@
+﻿
+
+@Html.Partial("_HeaderAdmin");
+
+
+
+<section class="contact-form">
+    <div class="container">
+        <div class="title">Product Page</div>
+                        <!--enctype will encrypt the file format for images/videos-->
+        <form method="post" enctype="multipart/form-data" asp-controller="Product" asp-action="SaveProduct">
+            <table>
+                <tr>
+                    <tr><td><label for="name">Name</label></td></tr>
+                    <td><input name="name" type="text" id="name" class="invalid"></td>
+                    <td style="color:red" id="errorName"></td>
+                </tr>
+                <tr>
+                    <tr><td><label for="description">Description</label></td></tr>
+                    <td><input name="description" id="description" type="text" class="invalid"></td>
+                    <td style="color:red" id="errorDescription"></td>
+                </tr>
+                <tr>
+                    <tr><td><label for="price">Price</label></td></tr>
+                    <td><input name="price" id="price" type="text" class="invalid"></td>
+                    <td style="color:red" id="errorPrice"></td>
+                </tr>
+                <tr>
+                    <tr><td><label for="categories">Categories</label></td></tr> 
+                    <td>            <!--Dropdown of Categories-->
+                    <select name="CategoryID" id="category">
+                            <option value="0">Select Category</option>
+                            @foreach (Category category in ViewBag.Categories)
+                            {
+                                <option value="@category.ID">@category.Name</option>
+                            }
+                        </select>
+                    </td>
+                    <td style="color:red" id="errorCategory"></td>
+                </tr>
+                <tr>
+                    <tr><td><label for="productCategories">ProductCategories</label></td></tr>
+                    <td>                <!--Dropdown of ProductCategories-->
+                    <select name="ProductCategoryID" id="productCategory">
+                            <option value="0">Select ProductCategory</option>
+                            @foreach (ProductCategory productCategory in ViewBag.ProductCategories)
+                            {
+                            <option value="@productCategory.Id">@productCategory.Name</option>
+                            }
+                        </select>
+                    </td>
+                    <td style="color:red" id="errorProductCategory"></td>
+                </tr>
+                <tr>
+                    <tr><td><label for="image">Image</label></td></tr>
+                    <td><input type="file" id="image" name="ImagePath" /></td>
+                    <td style="color:red" id="errorImage"></td>
+                </tr>
+            </table>
+
+
+            <button class="btn-theme" onclick="return Validation();">Add product</button>
+        </form>
+        <div style="color:green">@ViewBag.ProductSaved</div>
+    </div>
+</section>
+
+<script type="text/javascript">
+
+    function Validation() 
+    {
+        txtName = document.getElementById("name").value
+        txtDescription = document.getElementById("description").value
+        txtPrice = document.getElementById("price").value
+        txtCategory = document.getElementById("category").value
+        txtProductCategory = document.getElementById("productCategory").value
+        txtImage = document.getElementById("image").value
+        if (txtName == "") 
+        {
+            document.getElementById("errorName").innerHTML = "required field";
+        }
+        else 
+        {
+            document.getElementById("errorName").innerHTML = "";
+        }
+
+        if (txtDescription == "") 
+        {
+            document.getElementById("errorDescription").innerHTML = "required field";
+        }
+        else 
+        {
+            document.getElementById("errorDescription").innerHTML = "";
+        }
+        
+        if (txtPrice == "")
+        {
+            document.getElementById("errorPrice").innerHTML = "required field";
+        }
+        else
+        {
+            document.getElementById("errorPrice").innerHTML = "";
+        }
+
+        if (txtCategory == "0")
+        {
+            document.getElementById("errorCategory").innerHTML = "required field";
+        }
+        else
+        {
+            document.getElementById("errorCategory").innerHTML = "";
+        }
+
+        if (txtProductCategory == "0") 
+        {
+            document.getElementById("errorProductCategory").innerHTML = "required field";
+        }
+        else
+        {
+            document.getElementById("errorProductCategory").innerHTML = "";
+        }
+
+        if (txtImage == "") 
+        {
+            document.getElementById("errorImage").innerHTML = "required field";
+        }
+        else
+        {
+            document.getElementById("errorImage").innerHTML = "";
+        }
+
+        if (txtName == "" || txtDescription == "" || txtPrice == "" || txtCategory == "0" || txtProductCategory == "0" || txtImage == "")
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+
+</script>

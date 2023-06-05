@@ -1,0 +1,79 @@
+﻿@model IEnumerable<AssignmentMVC.ViewModel.UserRoleViewModel>
+
+
+
+@Html.Partial("_HeaderAdmin");
+
+<h1>Admins BackOffice</h1>
+
+@{
+    int serial = 1;
+}
+
+<style type="text/css">
+    table, td, th 
+    {
+        border: 1px solid black;
+    }
+    .tblUser
+    {
+        text-align:center;
+    }
+</style>
+
+<table style="margin-left:400px; margin-top:100px;">
+    <tr>
+        <th class="tblUser">Serial #</th>
+        <th class="tblUser">Name</th>
+        <th class="tblUser">Email</th>
+        <th class="tblUser">Adress</th>
+        <th class="tblUser">City</th>
+        <th class="tblUser">Role</th>
+    </tr>
+
+    @foreach (AssignmentMVC.ViewModel.UserRoleViewModel user in Model)
+    {
+        <tr>
+            <td>@serial</td>
+            <td>@user.Firstname @user.Lastname</td>
+            <td>@user.Email</td>
+            <td>@user.StreetName, @user.PostalCode</td>
+            <td>@user.City</td>
+            <td>
+                @foreach (string roleName in user.Roles)
+                {
+                    <div>@roleName</div>
+                }
+
+            </td>
+        </tr>
+        serial++;
+    }
+
+</table>
+
+
+@*<tr>
+    <td>ID: </td>
+    <td>@user.Id</td>
+</tr>
+<tr>
+    <td>Name: </td>
+    <td>@user.Firstname @user.Lastname</td>
+</tr>
+<tr>
+    <td>Email: </td>
+    <td>@user.Email</td>
+</tr>
+<tr>
+    <td>Adress: </td>
+    <td>@user.StreetName @user.PostalCode</td>
+</tr>
+<tr>
+    <td>Country: </td>
+    <td>@user._Country.Name, @user.City</td>
+</tr>
+<tr>
+    <td>Image: </td>
+    <td><img src="/uploads/@user.Image" /></td>
+</tr>*@

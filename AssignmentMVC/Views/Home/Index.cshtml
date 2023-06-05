@@ -1,0 +1,255 @@
+﻿@model IEnumerable<AssignmentMVC.Models.Category>
+
+<section class="showcase">
+        <div class="container">
+            <div class="content">
+                <div class="ingress">WELCOME TO BMERKETO SHOP</div>
+                <div class="title">Exclusive Chair gold Collection.</div>
+                <button class="btn-theme">SHOP NOW</button>
+            </div>
+            <div class="content-image">
+                <img src="images/placeholders/625x647.svg" alt="">
+            </div>
+        </div>
+    </section>
+
+
+<!--Create login and registration , fill in forms and register in database through entity framework core
+    create validation for Login, Register and Contactform (index)
+
+
+
+    Create categoryviewmodel and make it required
+    create category repository object and save into database
+    Revise controllers
+
+
+    Create a form of product.
+    [Required]
+    In that form there should be textfield of name and description
+    [Required]
+    Dropdown of Categories((1.Select) the rest are collections etc)
+    [Required]
+    Dropdown of ProductCategories ((1. Select)new,featured,popular)
+    [Required]
+    Upload image
+
+
+    ADD JS VALIDATION I PRODUCT
+    Display images, prices and category names on the top half of the 'Home' page
+
+
+    Create a razorpage and actionmethod. Basically a productpage depending on productID
+
+
+    Create AdminController > actionMethod DisplayUsers (it will take all users and display them)
+    Create AdminRepository > 
+-->
+
+@{
+    int loopTimes = 1;
+    int loopTimes2 = 1;
+}
+    <section class="best-collection">
+        <div class="container">
+            <h1 class="collection-title">Best Collection</h1>
+            <div class="categories">
+                
+            <ul class="categories">
+                <li class="category-item">All</li>
+                @foreach (Category category in ViewBag.CategoryList)
+                {
+                    <li class="category-item"><a href="/product/productpage?@loopTimes">@category.Name</a></li>
+
+                    loopTimes++;
+                    if (loopTimes > 5)
+                    {
+                        break;
+                    }
+                }
+            </ul>
+            </div>
+
+            <div class="collection-grid">
+                @foreach(Product product in ViewBag.ProductList)
+                {
+                
+                    <a href="/product/productpage?id=@product.Id" class="collection-item">
+                        <img src="uploads/@product.ImagePath" alt="">
+                        <div class="body">
+                            <div class="title">@product.Name</div>
+                            <div class="info">
+                                <div class="price">$@product.Price</div>
+                                <i class="add-cart fa-regular fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </a>
+
+
+                    loopTimes2++;
+                    if(loopTimes2 > 4)
+                    {
+                        break;
+                    }        
+                }
+                                            <!-- collection-item end -->
+            </div>
+            <div class="load-more">
+                <button class="btn-outline-white">LOAD MORE <i class="fa-solid fa-rotate-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="up-to-sell">
+        <div class="container">
+            <div class="collection-grid">
+                <div class="item-1">
+                    <!-- collection-item start -->
+                    <a href="#" class="collection-item">
+                        <img src="images/placeholders/369x310.svg" alt="">
+                        <div class="body">
+                            <div class="title">Apple watch collection</div>
+                            <div class="info">
+                                <div class="price">$30.00</div>
+                                <i class="add-cart fa-regular fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- collection-item end -->
+                </div>
+                <div class="discover">
+                    <!-- collection-content start -->
+                    <div class="collection-content">
+                        <div class="container">
+                            <div class="title-red">UP TO SELL</div>
+                            <div class="title">50% OFF</div>
+                            <div class="ingress">Get the Best Price</div>
+                            <div class="text">Get the best daily offer et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren no sea taki</div>
+                            <a href="#" class="link">Discover More</a>
+                        </div>
+                    </div>
+                    <!-- collection-content end -->
+                </div>
+                <div class="item-2">
+                    <!-- collection-item start -->
+                    <a href="#" class="collection-item">
+                        <img src="images/placeholders/369x310.svg" alt="">
+                        <div class="body">
+                            <div class="title">Apple watch collection</div>
+                            <div class="info">
+                                <div class="price">$30.00</div>
+                                <i class="add-cart fa-regular fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- collection-item end -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="top-selling">
+        <div class="container-fluid">
+            <h1 class="collection-title">Top selling products in this week</h1>
+            <div class="collection-grid">
+
+                <!-- collection-item start -->
+                <a href="#" class="collection-item">
+                    <img src="images/placeholders/270x295.svg" alt="">
+                    <div class="body">
+                        <div class="title">Apple watch collection</div>
+                        <div class="info">
+                            <div class="price">$30.00</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- collection-item end -->
+                <!-- collection-item start -->
+                <a href="#" class="collection-item">
+                    <img src="images/placeholders/270x295.svg" alt="">
+                    <div class="body">
+                        <div class="title">Apple watch collection</div>
+                        <div class="info">
+                            <div class="price">$30.00</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- collection-item end -->
+                <!-- collection-item start -->
+                <a href="#" class="collection-item">
+                    <img src="images/placeholders/270x295.svg" alt="">
+                    <div class="body">
+                        <div class="title">Apple watch collection</div>
+                        <div class="info">
+                            <div class="price">$30.00</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- collection-item end -->
+                <!-- collection-item start -->
+                <a href="#" class="collection-item">
+                    <img src="images/placeholders/270x295.svg" alt="">
+                    <div class="body">
+                        <div class="title">Apple watch collection</div>
+                        <div class="info">
+                            <div class="price">$30.00</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- collection-item end -->
+                <!-- collection-item start -->
+                <a href="#" class="collection-item">
+                    <img src="images/placeholders/270x295.svg" alt="">
+                    <div class="body">
+                        <div class="title">Apple watch collection</div>
+                        <div class="info">
+                            <div class="price">$30.00</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- collection-item end -->
+                <!-- collection-item start -->
+                <a href="#" class="collection-item">
+                    <img src="images/placeholders/270x295.svg" alt="">
+                    <div class="body">
+                        <div class="title">Apple watch collection</div>
+                        <div class="info">
+                            <div class="price">$30.00</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- collection-item end -->
+                <!-- collection-item start -->
+                <a href="#" class="collection-item">
+                    <img src="images/placeholders/270x295.svg" alt="">
+                    <div class="body">
+                        <div class="title">Apple watch collection</div>
+                        <div class="info">
+                            <div class="price">$30.00</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- collection-item end -->
+            </div>
+            <div class="load-more">
+                <button class="btn-outline-white me-1"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="btn-outline-white ms-1"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <form>
+                <input type="text" placeholder="subscribe mail here..." maxlength="64">
+                <button class="btn-theme btn-rounded"><i class="fa-sharp fa-solid fa-paper-plane fa-beat"></i></button>
+            </form>
+        </div>
+    </section>

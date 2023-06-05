@@ -1,0 +1,88 @@
+﻿
+
+@Html.Partial("_Header")
+
+<section class="contact-form">
+    <div class="container">
+        <div class="title">Fill in this form, we will reply to you as soon as possible.</div>
+        
+        <form method="post" novalidate asp-controller="Contact" asp-action="RegisterContact">
+            <div class="name form-group">
+                <label for="name">Your Name*</label>
+                <input name="Name" id="name" type="text" class="invalid" autocomplete="on">
+                <span id="errorName"></span>
+            </div>
+            <div class="email form-group">
+                <label for="email">Your Email*</label>
+                <input name="Email" id="email" type="text" class="invalid">
+                <span id="errorEmail"></span>
+            </div>
+            <div class="phoneNumber form-group">
+                <label for="phone">Phone Number</label>
+                <input name="Phone" id="phone" type="text">
+            </div>
+            <div class="companyName form-group">
+                <label for="company">Company</label>
+                <input name="CompanyName" id="company" type="text">
+            </div>
+            <div class="message form-group">
+                <label for="message">Message*</label>
+                <textarea name="Message" id="message" class="invalid"></textarea>
+                <span id="errorMessage"></span>
+            </div>
+            <div class="terms form-checkbox-group">
+                <label class="custom-checkbox">
+                    Save my name, email in the this browser for the next time I comment.
+                    <input name="SaveMyInfo" type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button class="btn-theme" onclick="return Validation()">Submit</button>
+        </form>
+    </div>
+</section>
+
+<section class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.846379992451!2d18.021943310261673!3d59.34492585222009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d9d263b022d%3A0x82fc0f30ed84f9ed!2sNackademin!5e0!3m2!1ssv!2sse!4v1679451477145!5m2!1ssv!2sse" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+
+
+<script type="text/javascript">
+    
+    function Validation()
+    {
+        txtName = document.getElementById("name").value
+        txtEmail = document.getElementById("email").value
+        txtMessage = document.getElementById("message").value
+        if(txtName == "")
+        {
+            document.getElementById("errorName").innerHTML = "required field";
+        }
+        else
+        {
+            document.getElementById("errorName").innerHTML = "";
+        }
+        if (txtEmail == "")
+        {
+            document.getElementById("errorEmail").innerHTML = "required field";
+        }
+        else
+        {
+            document.getElementById("errorEmail").innerHTML = "";
+        }
+        if (txtMessage == "")
+        {
+            document.getElementById("errorMessage").innerHTML = "required field";
+        }
+        else
+        {
+            document.getElementById("errorMessage").innerHTML = "";
+        }
+        if (txtName == "" || txtEmail == "" || txtMessage == "")
+        {
+            return false;
+        }
+        return true;
+    }
+
+</script>
