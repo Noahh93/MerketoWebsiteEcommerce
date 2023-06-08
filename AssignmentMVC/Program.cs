@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<ApplicationDBContext>(x => x.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=AssignmentASPnet;Integrated Security=True;encrypt = false;"));
+builder.Services.AddDbContext<ApplicationDBContext>(x => x.UseSqlServer(Configuration.ConnectionString));
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
 {
     x.SignIn.RequireConfirmedAccount = false;
