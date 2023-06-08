@@ -23,4 +23,36 @@
     </div>
 </section>
 
+<script type="text/javascript">
+    
+    function Validation() 
+    {
+        txtFirstName = document.getElementById("name").value
+        txtDescription = document.getElementById("description").value
+        if (txtFirstName == "")
+        {
+            document.getElementById("errorName").innerHTML = "Required field";
+        }
+        else
+        {
+            document.getElementById("errorName").innerHTML = "";
+        }
+        if (txtDescription == "")
+        {
+            document.getElementById("errorDescription").innerHTML = "Required field";
+        }
+        else
+        {
+            document.getElementById("errorDescription").innerHTML = "";
+        }
+        if (txtFirstName == "" || txtFirstName == "")
+        {
+            return false;
+        }
+        return true;
+    }
+
+
+</script>
+
 @Html.Partial("_Footer");

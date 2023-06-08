@@ -29,12 +29,12 @@
                 </tr>
                 <tr> 
                     <tr><td><label for="password">Password*</label></td></tr>
-                    <td><input name="Password" id="password1" type="text" class="invalid"></td>
+                    <td><input name="Password" id="password1" type="password" class="invalid"></td>
                     <td style="color:red;"><span id="PasswordError1"></span></td>
                 </tr>
                 <tr>
                     <tr><td><label for="password">Repeat password*</label></td></tr>
-                    <td><input name="Password" id="password2" type="text" class="invalid"></td>
+                    <td><input name="Password" id="password2" type="password" class="invalid"></td>
                     <td style="color:red;"><span id="PasswordError2"></span></td>
                 </tr>
                 <tr>      
@@ -53,11 +53,15 @@
                     <td><span class="error"></span></td>
                 </tr>
             </table>
-
-            <button class="btn-theme" onclick="return Validation()">Register</button>
+            <button class="btn-theme" onclick="return Validation();">Register</button>
         </form>
+
+
+        <div style="color:red;">@ViewBag.RegisterFail</div> <!--this line Doesnt work -->
+
     </div>
 </section>
+
 
 
 <script type="text/javascript">
@@ -97,10 +101,6 @@
         {
             document.getElementById("PasswordError1").innerHTML = " required field";
         }
-        else if (txtPassword1 != txtPassword2) 
-        {
-            document.getElementById("PasswordError1").innerHTML = " passwords not matching";
-        }
         else
         {
             document.getElementById("PasswordError1").innerHTML = "";
@@ -109,12 +109,18 @@
         {
             document.getElementById("PasswordError2").innerHTML = " required field";
         }
-        else if (txtPassword1 != txtPassword2)
-        {
-            document.getElementById("PasswordError2").innerHTML = " passwords not matching";
-        }
         else 
         {
+            document.getElementById("PasswordError2").innerHTML = "";
+        }
+        if (txtPassword1 != txtPassword2) 
+        {
+            document.getElementById("PasswordError1").innerHTML = " passwords not matching";
+            document.getElementById("PasswordError2").innerHTML = " passwords not matching";
+        }
+        else
+        {
+            document.getElementById("PasswordError1").innerHTML = "";
             document.getElementById("PasswordError2").innerHTML = "";
         }
         if (txtFirstName == "" || txtLastName == "" || txtEmail == "" || txtPassword1 == "" || txtPassword2 == "")
