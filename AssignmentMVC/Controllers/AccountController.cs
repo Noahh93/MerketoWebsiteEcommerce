@@ -57,28 +57,6 @@ namespace AssignmentMVC.Controllers
                     return RedirectToAction("Login", "Account");
                 }
                 
-
-                //try
-                //{
-                //    await _seedService.SeedRoles();
-                //    var roleName = "user";
-
-                //    if (!await _userManager.Users.AnyAsync())
-                //        roleName = "admin";
-
-                //    IdentityUser identityUser = model;
-                //    await _userManager.CreateAsync(identityUser, model.Password);
-                //    await _userManager.AddToRoleAsync(identityUser, roleName);
-
-                //    UserProfileEntity userProfileEntity = model;
-                //    userProfileEntity.UserId = identityUser.Id;
-
-                //    _identityContext.UserProfiles.Add(userProfileEntity);
-                //    await _identityContext.SaveChangesAsync();
-
-                //    return true;
-                //}
-                //catch { return false; }
             }
             return View();
         }

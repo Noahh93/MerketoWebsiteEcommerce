@@ -41,7 +41,6 @@ namespace AssignmentMVC.Controllers
                 product.Price =             productViewModel.Price;
                 product.CategoryID =        productViewModel.CategoryID;
                 product.ProductCategoryID = productViewModel.ProductCategoryID;
-                //product.ImagePath =         productViewModel.ImagePath;
 
                 string fileName = Path.GetFileName(productViewModel.ImagePath.FileName);
                 string uploadsFolder = Path.Combine(_webhostenvironment.WebRootPath, "uploads");

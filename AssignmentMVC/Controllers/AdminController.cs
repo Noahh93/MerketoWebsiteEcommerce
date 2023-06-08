@@ -21,7 +21,6 @@ namespace AssignmentMVC.Controllers
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> DisplayUsers()
         {
-            //var users = await _userManager.Users.ToListAsync();
             AdminRepository adminRepository = new AdminRepository();
             List<AppUser> user = adminRepository.GetAllUsers();
 

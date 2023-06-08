@@ -28,13 +28,5 @@ namespace AssignmentMVC
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
-
-        //public DbSet<Customer> Customers { get; set; }
-        //public DbSet<Status> Status { get; set; }
-
-        //public DbSet<Comments> Comments { get; set; }
-        //public DbSet<Employee> Employees { get; set; }
-
-        //public DbSet<ErrorReport> ErrorReports { get; set; }
     }
 }
