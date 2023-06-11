@@ -14,7 +14,6 @@ namespace AssignmentMVC.ViewModel
         [Required]
         public string Message { get; set; }
         public string SaveMyInfo { get; set; }
-        public string City { get; set; }
 
     }
 }

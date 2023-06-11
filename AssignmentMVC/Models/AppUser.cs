@@ -19,13 +19,10 @@ namespace AssignmentMVC.Models
         [StringLength(30)]
         public string Password { get; set; }
         [StringLength(40)]
-        [Required]
-        public string StreetName { get; set; }
+        public string? StreetName { get; set; }
         [StringLength(10)]
-        [Required]
-        public string PostalCode { get; set; }
+        public string? PostalCode { get; set; }
         [StringLength(40)]
-        [Required]
-        public string City { get; set; }
+        public string? City { get; set; }
     }
 }

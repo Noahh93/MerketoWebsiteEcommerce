@@ -1,5 +1,8 @@
 ﻿@Html.Partial("_Header");
 
+<!--This page has been reviewed and is fine-->
+
+
 <section class="contact-form">
     <div class="container">
         <div class="title">Create Category</div>
@@ -17,7 +20,7 @@
                     <td style="color:red" id="errorDescription"></td>
                 </tr>
             </table>
-            <button class="btn-theme" onclick="return Validation();">Save</button>
+            <button class="btn-theme" onclick="return Validation();">Create</button>
         </form>
         <div style="color:red;">@ViewBag.CategoryNameExist</div>
     </div>

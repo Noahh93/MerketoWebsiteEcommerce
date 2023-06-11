@@ -12,9 +12,9 @@ namespace AssignmentMVC.Models
         [StringLength(50)]
         public string Email { get; set; }
         [StringLength(50)]
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
         [StringLength(50)]
-        public string CompanyName { get; set; }
+        public string? CompanyName { get; set; }
         [Required]
         [StringLength(150)]
         public string Message { get; set; }

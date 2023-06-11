@@ -16,10 +16,10 @@ namespace AssignmentMVC.ViewModel
         [Required]
         public string Password { get; set; }
         [StringLength(30)]
-        public string StreetName { get; set; }
+        public string? StreetName { get; set; }
         [StringLength(10)]
-        public string PostalCode { get; set; }
+        public string? PostalCode { get; set; }
         [StringLength(20)]
-        public string City { get; set; }
+        public string? City { get; set; }
     }
 }

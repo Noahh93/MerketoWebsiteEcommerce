@@ -2,7 +2,7 @@
 
 @Html.Partial("_HeaderAdmin");
 
-
+<!--This page has been reviewed and works fine-->
 
 <section class="contact-form">
     <div class="container">
@@ -11,22 +11,22 @@
         <form method="post" enctype="multipart/form-data" asp-controller="Product" asp-action="SaveProduct">
             <table>
                 <tr>
-                    <tr><td><label for="name">Name</label></td></tr>
+                    <tr><td><label for="name">Name*</label></td></tr>
                     <td><input name="name" type="text" id="name" class="invalid"></td>
                     <td style="color:red" id="errorName"></td>
                 </tr>
                 <tr>
-                    <tr><td><label for="description">Description</label></td></tr>
+                    <tr><td><label for="description">Description*</label></td></tr>
                     <td><input name="description" id="description" type="text" class="invalid"></td>
                     <td style="color:red" id="errorDescription"></td>
                 </tr>
                 <tr>
-                    <tr><td><label for="price">Price</label></td></tr>
+                    <tr><td><label for="price">Price*</label></td></tr>
                     <td><input name="price" id="price" type="text" class="invalid"></td>
                     <td style="color:red" id="errorPrice"></td>
                 </tr>
                 <tr>
-                    <tr><td><label for="categories">Categories</label></td></tr> 
+                    <tr><td><label for="categories">Categories*</label></td></tr> 
                     <td>            <!--Dropdown of Categories-->
                     <select name="CategoryID" id="category">
                             <option value="0">Select Category</option>
@@ -39,7 +39,7 @@
                     <td style="color:red" id="errorCategory"></td>
                 </tr>
                 <tr>
-                    <tr><td><label for="productCategories">ProductCategories</label></td></tr>
+                    <tr><td><label for="productCategories">Product Categories*</label></td></tr>
                     <td>                <!--Dropdown of ProductCategories-->
                     <select name="ProductCategoryID" id="productCategory">
                             <option value="0">Select ProductCategory</option>
@@ -52,7 +52,7 @@
                     <td style="color:red" id="errorProductCategory"></td>
                 </tr>
                 <tr>
-                    <tr><td><label for="image">Image</label></td></tr>
+                    <tr><td><label for="image">Image*</label></td></tr>
                     <td><input type="file" id="image" name="ImagePath" /></td>
                     <td style="color:red" id="errorImage"></td>
                 </tr>

@@ -56,6 +56,10 @@ namespace AssignmentMVC.Controllers
                     await _userManager.AddToRoleAsync(appUser, roleName);
                     return RedirectToAction("Login", "Account");
                 }
+                else
+                {
+                    ViewBag.RegisterFail = "User was not registered";
+                }
                 
             }
             return View();
@@ -97,53 +101,3 @@ namespace AssignmentMVC.Controllers
     }
 
 }
-
-//gmail: sharmaranjan.dev@gmail.com
-
-
-
-
-
-        //UserRepository _userRepository;
-
-        //[HttpGet]
-        //public ActionResult RegisterUser() //FORM
-        //{
-        //    CountryRepository DBcountry = new CountryRepository();
-        //    List<Country> countries = DBcountry.GetCountries();
-
-        //    ViewBag.countries = countries;
-
-        //    return View();
-        //}
-        //[HttpPost]
-        //public ActionResult RegisterUser(UserViewModel userWM) //SAVE THE INFO FROM FORM
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _userRepository = new UserRepository();
-        //        UserRepository userToDB = _userRepository;
-        //        User userData = new User();
-        //        userData.Firstname = userWM.Firstname;
-        //        userData.Lastname = userWM.Lastname;
-        //        userData.Email = userWM.Email;
-        //        userData.Password = userWM.Password;
-        //        userData.CountryID = userWM.CountryID;
-        //        //userData.Image = userWM.Photo;
-        //        bool returnUser = userToDB.SaveUser(userData);
-        //    }
-        //    else
-        //    {
-        //        //This line will fetch errors and assign it to errorMessages
-        //        IEnumerable<string> errorMessages = ModelState.Values.SelectMany(V => V.Errors).Select(e => e.ErrorMessage);
-        //        ViewBag.Errors = errorMessages;
-        //    }
-
-
-        //    CountryRepository DBcountry = new CountryRepository();
-        //    IEnumerable<Country> countries = DBcountry.GetCountries();
-
-        //    ViewBag.countries = countries;
-
-        //    return View();
-        //}
